@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RetroLab · Camisetas de fútbol retro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <a href="#" class="logo">
+      <img src="img/logo-retrolab.png" alt="Logo de RetroLab, sello circular con una camiseta a rayas y el texto Heritage Wear">
+    </a>
+    <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="nav-menu">
+      <ul>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#pedido">Pedido</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="hero" class="hero">
+      <h1>No leas la historia, vístela</h1>
+      <p>Camisetas retro y actuales de equipos y selecciones, elegidas por lo que representaron en su época.</p>
+    </section>
+
+    <section id="catalogo">
+      <h2>Catálogo</h2>
+
+      <div class="filtros" id="filtros">
+      </div>
+
+      <div class="catalogo-grid" id="catalogo-grid">
+      </div>
+    </section>
+
+    <section id="nosotros">
+      <h2>Sobre RetroLab</h2>
+      <p>
+        RetroLab nació de buscar la camiseta exacta que usó un equipo en una temporada específica,
+        y no encontrarla en ningún lado. Cada pieza del catálogo corresponde a una temporada real,
+        con la idea de vender historia del fútbol, no solo tela.
+      </p>
+    </section>
+
+    <section id="pedido">
+      <h2>Pedido personalizado</h2>
+      <p>¿Quieres tu camiseta con nombre y número? Cuéntanos los detalles.</p>
+      <form id="form-pedido">
+        <div class="campo">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" name="nombre">
+        </div>
+        <div class="campo">
+          <label for="email">Correo</label>
+          <input type="email" id="email" name="email">
+        </div>
+        <button type="submit">Enviar pedido</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 RetroLab · Heritage Wear.</p>
+    <p><a href="https://www.instagram.com/retrolab10" target="_blank" rel="noopener">@retrolab10</a> — proyecto académico, Desarrollo Web.</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
