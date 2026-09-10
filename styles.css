@@ -1,3 +1,26 @@
+/* ============================================
+   VARIABLES — paleta real de RetroLab
+   ============================================ */
+:root {
+  --color-oscuro: #1C2B2E;   /* fondo del sello, header, texto principal */
+  --color-crema: #EDE6D3;    /* fondo claro, círculo del sello */
+  --color-dorado: #A8925F;   /* acento: precios, bordes activos */
+  --color-blanco: #FFFFFF;
+
+  --fuente-titulo: 'Oswald', sans-serif;
+  --fuente-texto: 'Inter', sans-serif;
+
+  --espacio-sm: 0.5rem;
+  --espacio-md: 1rem;
+  --espacio-lg: 2rem;
+  --espacio-xl: 4rem;
+
+  --radio-borde: 6px;
+}
+
+/* ============================================
+   RESET Y BASE
+   ============================================ */
 * {
   margin: 0;
   padding: 0;
@@ -5,18 +28,258 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--fuente-texto);
+  color: var(--color-oscuro);
+  background-color: var(--color-crema);
+  line-height: 1.5;
 }
 
+h1, h2, h3 {
+  font-family: var(--fuente-titulo);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ============================================
+   HEADER Y NAV — Flexbox
+   ============================================ */
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1.5rem;
+  padding: var(--espacio-md) var(--espacio-lg);
+  background-color: var(--color-oscuro);
 }
 
 .logo img {
   height: 48px;
   width: auto;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-toggle span {
   display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-crema);
+  border-radius: 2px;
+}
+
+nav ul {
+  display: flex;
+  gap: var(--espacio-lg);
+  list-style: none;
+}
+
+nav a {
+  color: var(--color-crema);
+  font-family: var(--fuente-titulo);
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero {
+  text-align: center;
+  padding: var(--espacio-xl) var(--espacio-lg);
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: var(--espacio-md);
+}
+
+.hero p {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   CATÁLOGO — Grid + filtros con Flexbox
+   ============================================ */
+#catalogo {
+  padding: var(--espacio-xl) var(--espacio-lg);
+}
+
+#catalogo h2 {
+  text-align: center;
+  margin-bottom: var(--espacio-lg);
+}
+
+.filtros {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--espacio-sm);
+  margin-bottom: var(--espacio-lg);
+}
+
+.filtros button {
+  padding: 0.5rem 1.25rem;
+  border: 1px solid var(--color-oscuro);
+  background-color: transparent;
+  border-radius: var(--radio-borde);
+  font-family: var(--fuente-titulo);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.filtros button.activo {
+  background-color: var(--color-oscuro);
+  color: var(--color-crema);
+}
+
+.catalogo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: var(--espacio-lg);
+}
+
+.camiseta-card {
+  background-color: var(--color-blanco);
+  border-radius: var(--radio-borde);
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.camiseta-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.camiseta-card .info {
+  padding: var(--espacio-md);
+}
+
+.camiseta-card .precio {
+  color: var(--color-dorado);
+  font-weight: 600;
+}
+
+/* ============================================
+   NOSOTROS Y PEDIDO
+   ============================================ */
+#nosotros, #contacto {
+  padding: var(--espacio-xl) var(--espacio-lg);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+#contacto h2 {
+  margin-bottom: var(--espacio-sm);
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--espacio-md);
+}
+
+.campo label {
+  margin-bottom: var(--espacio-sm);
+  font-size: 0.9rem;
+}
+
+.campo input {
+  padding: 0.6rem;
+  border: 1px solid var(--color-oscuro);
+  border-radius: var(--radio-borde);
+  font-family: var(--fuente-texto);
+}
+
+#form-contacto button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-oscuro);
+  color: var(--color-crema);
+  border: none;
+  border-radius: var(--radio-borde);
+  font-family: var(--fuente-titulo);
+  cursor: pointer;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+  text-align: center;
+  padding: var(--espacio-lg);
+  background-color: var(--color-oscuro);
+  color: var(--color-crema);
+  font-size: 0.85rem;
+}
+
+footer a {
+  color: var(--color-dorado);
+}
+
+/* ============================================
+   RESPONSIVE — mobile primero
+   ============================================ */
+
+/* Menú hamburguesa visible solo en móvil */
+@media (max-width: 767px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  nav ul {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background-color: var(--color-oscuro);
+    padding: var(--espacio-md);
+    text-align: center;
+  }
+
+  nav ul.nav-abierto {
+    display: flex;
+  }
+
+  header {
+    position: relative;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .catalogo-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Escritorio */
+@media (min-width: 1024px) {
+  .hero h1 {
+    font-size: 2.75rem;
+  }
+
+  .catalogo-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
