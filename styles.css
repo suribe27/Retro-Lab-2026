@@ -1,13 +1,15 @@
 /* ============================================
-   VARIABLES — paleta real de RetroLab
+   VARIABLES — paleta de RetroLab
    ============================================ */
 :root {
-  --color-oscuro: #1C2B2E;   /* fondo del sello, header, texto principal */
-  --color-crema: #EDE6D3;    /* fondo claro, círculo del sello */
-  --color-dorado: #A8925F;   /* acento: precios, bordes activos */
-  --color-blanco: #FFFFFF;
+  --color-navy: #162832;     /* texto principal, header, botones */
+  --color-cream: #FAF9F3;    /* fondo general */
+  --color-paper: #F5F4EE;    /* fondo de imágenes/tarjetas */
+  --color-clay: #E5E3D1;     /* bordes suaves, detalles */
+  --color-sand: #5F5F51;     /* texto secundario, descripciones */
+  --color-slate: #2C3E48;    /* acentos oscuros alternos */
 
-  --fuente-titulo: 'Oswald', sans-serif;
+  --fuente-titulo: 'Noto Serif', serif;
   --fuente-texto: 'Inter', sans-serif;
 
   --espacio-sm: 0.5rem;
@@ -29,8 +31,8 @@
 
 body {
   font-family: var(--fuente-texto);
-  color: var(--color-oscuro);
-  background-color: var(--color-crema);
+  color: var(--color-navy);
+  background-color: var(--color-cream);
   line-height: 1.5;
 }
 
@@ -58,7 +60,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: var(--espacio-md) var(--espacio-lg);
-  background-color: var(--color-oscuro);
+  background-color: var(--color-navy);
 }
 
 .logo img {
@@ -81,7 +83,7 @@ header {
   display: block;
   width: 100%;
   height: 3px;
-  background-color: var(--color-crema);
+  background-color: var(--color-cream);
   border-radius: 2px;
 }
 
@@ -92,7 +94,7 @@ nav ul {
 }
 
 nav a {
-  color: var(--color-crema);
+  color: var(--color-cream);
   font-family: var(--fuente-titulo);
   font-size: 0.9rem;
   letter-spacing: 0.05em;
@@ -138,7 +140,7 @@ nav a {
 
 .filtros button {
   padding: 0.5rem 1.25rem;
-  border: 1px solid var(--color-oscuro);
+  border: 1px solid var(--color-navy);
   background-color: transparent;
   border-radius: var(--radio-borde);
   font-family: var(--fuente-titulo);
@@ -147,8 +149,8 @@ nav a {
 }
 
 .filtros button.activo {
-  background-color: var(--color-oscuro);
-  color: var(--color-crema);
+  background-color: var(--color-navy);
+  color: var(--color-cream);
 }
 
 .catalogo-grid {
@@ -158,25 +160,70 @@ nav a {
 }
 
 .camiseta-card {
-  background-color: var(--color-blanco);
+  background-color: var(--color-paper);
+  border: 1px solid var(--color-clay);
   border-radius: var(--radio-borde);
   overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .camiseta-card img {
   width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
+  aspect-ratio: 3 / 4;
+  object-fit: contain;
+  background-color: var(--color-paper);
+}
+
+.imagen-wrapper {
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.5rem;
+  color: var(--color-cream);
+}
+
+.badge.disponible {
+  background-color: #2f5233;
+}
+
+.badge.agotado {
+  background-color: var(--color-sand);
 }
 
 .camiseta-card .info {
   padding: var(--espacio-md);
 }
 
+.camiseta-card h3 {
+  font-family: var(--fuente-titulo);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--espacio-sm);
+}
+
+.camiseta-card p {
+  font-size: 0.7rem;
+  color: var(--color-sand);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--espacio-sm);
+}
+
 .camiseta-card .precio {
-  color: var(--color-dorado);
-  font-weight: 600;
+  color: var(--color-navy);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: normal;
+  text-transform: none;
 }
 
 /* ============================================
@@ -205,15 +252,15 @@ nav a {
 
 .campo input {
   padding: 0.6rem;
-  border: 1px solid var(--color-oscuro);
+  border: 1px solid var(--color-navy);
   border-radius: var(--radio-borde);
   font-family: var(--fuente-texto);
 }
 
 #form-contacto button {
   padding: 0.75rem 1.5rem;
-  background-color: var(--color-oscuro);
-  color: var(--color-crema);
+  background-color: var(--color-navy);
+  color: var(--color-cream);
   border: none;
   border-radius: var(--radio-borde);
   font-family: var(--fuente-titulo);
@@ -226,13 +273,13 @@ nav a {
 footer {
   text-align: center;
   padding: var(--espacio-lg);
-  background-color: var(--color-oscuro);
-  color: var(--color-crema);
+  background-color: var(--color-navy);
+  color: var(--color-cream);
   font-size: 0.85rem;
 }
 
 footer a {
-  color: var(--color-dorado);
+  color: var(--color-sand);
 }
 
 /* ============================================
@@ -252,7 +299,7 @@ footer a {
     left: 0;
     right: 0;
     flex-direction: column;
-    background-color: var(--color-oscuro);
+    background-color: var(--color-navy);
     padding: var(--espacio-md);
     text-align: center;
   }
