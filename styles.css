@@ -61,11 +61,20 @@ header {
   justify-content: space-between;
   padding: var(--espacio-md) var(--espacio-lg);
   background-color: var(--color-navy);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .logo img {
   height: 48px;
   width: auto;
+}
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-lg);
 }
 
 .menu-toggle {
@@ -164,9 +173,21 @@ nav a {
   padding: var(--espacio-xl) var(--espacio-lg);
 }
 
-#catalogo h2 {
+#catalogo h1 {
   text-align: center;
-  margin-bottom: var(--espacio-lg);
+  margin-bottom: var(--espacio-sm);
+}
+
+.catalogo-intro {
+  text-align: center;
+  color: var(--color-sand);
+  max-width: 500px;
+  margin: 0 auto var(--espacio-lg);
+}
+
+.catalogo-intro a {
+  color: var(--color-navy);
+  text-decoration: underline;
 }
 
 .filtros {
@@ -371,7 +392,7 @@ nav a {
 }
 
 .testimonio-card {
-  flex: 0 0 350px;
+  flex: 0 0 340px;
   scroll-snap-align: start;
   background-color: var(--color-paper);
   border: 1px solid var(--color-clay);
@@ -399,7 +420,9 @@ nav a {
   font-size: 0.9rem;
 }
 
-.campo input {
+.campo input,
+.campo select,
+.campo textarea {
   padding: 0.6rem;
   border: 1px solid var(--color-navy);
   border-radius: var(--radio-borde);
@@ -475,8 +498,9 @@ footer a {
     display: flex;
   }
 
-  header {
-    position: relative;
+  .catalogo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--espacio-sm);
   }
 }
 

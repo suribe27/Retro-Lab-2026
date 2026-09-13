@@ -141,9 +141,9 @@ function renderizarCatalogo(lista) {
     catalogoGrid.appendChild(crearTarjeta(camiseta));
   });
 }
-
-// Primer render: todo el catálogo
-renderizarCatalogo(camisetas);
+if (catalogoGrid) {
+  renderizarCatalogo(camisetas);
+}
 
 // ============================================
 // FILTRO POR CATEGORÍA
@@ -180,14 +180,25 @@ botonMenu.addEventListener('click', () => {
   botonMenu.setAttribute('aria-expanded', estaAbierto);
 });
 
+const linksNav = menuNav.querySelectorAll('a');
+
+linksNav.forEach((link) => {
+  link.addEventListener('click', () => {
+    menuNav.classList.remove('nav-abierto');
+    botonMenu.setAttribute('aria-expanded', false);
+  });
+});
+
 // ============================================
 // VALIDACIÓN DEL FORMULARIO DE CONTACTO
 // ============================================
 const formContacto = document.getElementById('form-contacto');
 const campoNombre = document.getElementById('nombre');
 const campoEmail = document.getElementById('email');
+const campoCamiseta = document.getElementById('camiseta-buscada');
 const errorNombre = document.getElementById('error-nombre');
 const errorEmail = document.getElementById('error-email');
+const errorCamiseta = document.getElementById('error-camiseta');
 const mensajeExito = document.getElementById('mensaje-exito');
 
 const REGEX_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -233,25 +244,46 @@ function validarEmail() {
   return true;
 }
 
-formContacto.addEventListener('submit', (evento) => {
-  evento.preventDefault();
+function validarCamisetaBuscada() {
+  const valor = campoCamiseta.value.trim();
 
-  const nombreValido = validarNombre();
-  const emailValido = validarEmail();
-
-  if (nombreValido && emailValido) {
-    mensajeExito.textContent = '¡Gracias! Te contactaremos pronto.';
-    formContacto.reset();
-  } else {
-    mensajeExito.textContent = '';
+  if (valor === '') {
+    errorCamiseta.textContent = 'Cuéntanos qué camiseta buscas (equipo y año).';
+    campoCamiseta.classList.add('invalido');
+    return false;
   }
-});
 
-// Validar en tiempo real mientras el usuario escribe, después del primer intento
-campoNombre.addEventListener('input', () => {
-  if (campoNombre.classList.contains('invalido')) validarNombre();
-});
+  errorCamiseta.textContent = '';
+  campoCamiseta.classList.remove('invalido');
+  return true;
+}
 
-campoEmail.addEventListener('input', () => {
-  if (campoEmail.classList.contains('invalido')) validarEmail();
-});
+if (formContacto) {
+  formContacto.addEventListener('submit', (evento) => {
+    evento.preventDefault();
+
+    const nombreValido = validarNombre();
+    const emailValido = validarEmail();
+    const camisetaValida = validarCamisetaBuscada();
+
+    if (nombreValido && emailValido && camisetaValida) {
+      mensajeExito.textContent = '¡Gracias! Te contactaremos pronto para mostrarte la camiseta.';
+      formContacto.reset();
+    } else {
+      mensajeExito.textContent = '';
+    }
+  });
+
+  // Validar en tiempo real mientras el usuario escribe, después del primer intento
+  campoNombre.addEventListener('input', () => {
+    if (campoNombre.classList.contains('invalido')) validarNombre();
+  });
+
+  campoEmail.addEventListener('input', () => {
+    if (campoEmail.classList.contains('invalido')) validarEmail();
+  });
+
+  campoCamiseta.addEventListener('input', () => {
+    if (campoCamiseta.classList.contains('invalido')) validarCamisetaBuscada();
+  });
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo · RetroLab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">
+      <img src="img/logo-retrolab.png" alt="Logo de RetroLab, sello circular con una camiseta a rayas y el texto Heritage Wear">
+    </a>
+    <div class="nav-wrapper">
+      <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="nav-menu">
+        <ul>
+          <li><a href="index.html#hero">Inicio</a></li>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="catalogo" class="pagina-catalogo">
+      <h1>Catálogo</h1>
+      <p class="catalogo-intro">Todas las camisetas disponibles ahora mismo. ¿Te gusta alguna? Pregúntanos por ella aquí</a>.</p>
+
+      <div class="filtros" id="filtros">
+        <button data-categoria="todos" class="activo">Todos</button>
+        <button data-categoria="clubes">Clubes</button>
+        <button data-categoria="selecciones">Selecciones</button>
+      </div>
+
+      <div class="catalogo-grid" id="catalogo-grid">
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 RetroLab · Heritage Wear.</p>
+    <p><a href="https://www.instagram.com/retrolab10" target="_blank" rel="noopener">@retrolab10</a> — proyecto académico, Desarrollo Web.</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
