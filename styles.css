@@ -104,18 +104,57 @@ nav a {
    HERO
    ============================================ */
 .hero {
+  position: relative;
+  min-height: 65vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   padding: var(--espacio-xl) var(--espacio-lg);
+  background-image: linear-gradient(rgba(22, 40, 50, 0.6), rgba(22, 40, 50, 0.6)),
+    url('img/hero-camisetas.png');
+  background-size: cover;
+  background-position: center;
+  color: var(--color-cream);
+}
+
+.hero-tag {
+  font-family: var(--fuente-texto);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  margin-bottom: var(--espacio-md);
+  color: var(--color-clay);
 }
 
 .hero h1 {
   font-size: 2rem;
   margin-bottom: var(--espacio-md);
+  color: var(--color-cream);
 }
 
 .hero p {
   max-width: 500px;
   margin: 0 auto;
+}
+
+.btn-hero {
+  display: inline-block;
+  margin-top: var(--espacio-lg);
+  padding: 0.85rem 2rem;
+  background-color: var(--color-cream);
+  color: var(--color-navy);
+  font-family: var(--fuente-titulo);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--radio-borde);
+  transition: transform 0.2s ease;
+}
+
+.btn-hero:hover {
+  transform: translateY(-2px);
 }
 
 /* ============================================
@@ -233,6 +272,116 @@ nav a {
   padding: var(--espacio-xl) var(--espacio-lg);
   max-width: 700px;
   margin: 0 auto;
+  text-align: center;
+}
+
+.seccion-tag {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-sand);
+  margin-bottom: var(--espacio-sm);
+}
+
+#nosotros h2 {
+  margin-bottom: var(--espacio-md);
+}
+
+#nosotros p {
+  color: var(--color-sand);
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: var(--espacio-xl);
+  margin-top: var(--espacio-lg);
+  padding-top: var(--espacio-lg);
+  border-top: 1px solid var(--color-clay);
+}
+
+.stat-numero {
+  display: block;
+  font-family: var(--fuente-titulo);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-sand);
+  margin-top: 0.25rem;
+}
+
+.redes {
+  display: flex;
+  justify-content: center;
+  gap: var(--espacio-md);
+  margin-top: var(--espacio-lg);
+}
+
+.btn-red {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.4rem;
+  border: 1px solid var(--color-navy);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-navy);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-red:hover {
+  background-color: var(--color-navy);
+  color: var(--color-cream);
+}
+
+/* ============================================
+   TESTIMONIOS
+   ============================================ */
+#testimonios {
+  padding: var(--espacio-xl) var(--espacio-lg);
+  text-align: center;
+}
+
+.testimonios-scroll {
+  display: flex;
+  gap: var(--espacio-md);
+  overflow-x: auto;
+  padding: var(--espacio-lg) var(--espacio-sm);
+  margin-top: var(--espacio-md);
+  scroll-snap-type: x mandatory;
+}
+
+@media (min-width: 768px) {
+  .testimonios-scroll {
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-x: visible;
+  }
+}
+
+.testimonio-card {
+  flex: 0 0 350px;
+  scroll-snap-align: start;
+  background-color: var(--color-paper);
+  border: 1px solid var(--color-clay);
+  border-radius: var(--radio-borde);
+  overflow: hidden;
+}
+
+.testimonio-card img {
+  width: 100%;
+  display: block;
 }
 
 #contacto h2 {
