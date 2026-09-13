@@ -179,3 +179,79 @@ botonMenu.addEventListener('click', () => {
   const estaAbierto = menuNav.classList.toggle('nav-abierto');
   botonMenu.setAttribute('aria-expanded', estaAbierto);
 });
+
+// ============================================
+// VALIDACIÓN DEL FORMULARIO DE CONTACTO
+// ============================================
+const formContacto = document.getElementById('form-contacto');
+const campoNombre = document.getElementById('nombre');
+const campoEmail = document.getElementById('email');
+const errorNombre = document.getElementById('error-nombre');
+const errorEmail = document.getElementById('error-email');
+const mensajeExito = document.getElementById('mensaje-exito');
+
+const REGEX_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const LONGITUD_MINIMA_NOMBRE = 3;
+
+function validarNombre() {
+  const valor = campoNombre.value.trim();
+
+  if (valor === '') {
+    errorNombre.textContent = 'El nombre es obligatorio.';
+    campoNombre.classList.add('invalido');
+    return false;
+  }
+
+  if (valor.length < LONGITUD_MINIMA_NOMBRE) {
+    errorNombre.textContent = `El nombre debe tener al menos ${LONGITUD_MINIMA_NOMBRE} caracteres.`;
+    campoNombre.classList.add('invalido');
+    return false;
+  }
+
+  errorNombre.textContent = '';
+  campoNombre.classList.remove('invalido');
+  return true;
+}
+
+function validarEmail() {
+  const valor = campoEmail.value.trim();
+
+  if (valor === '') {
+    errorEmail.textContent = 'El correo es obligatorio.';
+    campoEmail.classList.add('invalido');
+    return false;
+  }
+
+  if (!REGEX_EMAIL.test(valor)) {
+    errorEmail.textContent = 'Escribe un correo válido, ej: nombre@correo.com';
+    campoEmail.classList.add('invalido');
+    return false;
+  }
+
+  errorEmail.textContent = '';
+  campoEmail.classList.remove('invalido');
+  return true;
+}
+
+formContacto.addEventListener('submit', (evento) => {
+  evento.preventDefault();
+
+  const nombreValido = validarNombre();
+  const emailValido = validarEmail();
+
+  if (nombreValido && emailValido) {
+    mensajeExito.textContent = '¡Gracias! Te contactaremos pronto.';
+    formContacto.reset();
+  } else {
+    mensajeExito.textContent = '';
+  }
+});
+
+// Validar en tiempo real mientras el usuario escribe, después del primer intento
+campoNombre.addEventListener('input', () => {
+  if (campoNombre.classList.contains('invalido')) validarNombre();
+});
+
+campoEmail.addEventListener('input', () => {
+  if (campoEmail.classList.contains('invalido')) validarEmail();
+});

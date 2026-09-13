@@ -58,16 +58,19 @@
     <section id="contacto">
       <h2>¿Dudas sobre tu pedido?</h2>
       <p>Déjanos tu nombre y correo y te contactamos para resolverlo.</p>
-      <form id="form-contacto">
+      <form id="form-contacto" novalidate>
         <div class="campo">
           <label for="nombre">Nombre completo</label>
           <input type="text" id="nombre" name="nombre">
+          <span class="error" id="error-nombre"></span>
         </div>
         <div class="campo">
           <label for="email">Correo</label>
           <input type="email" id="email" name="email">
+          <span class="error" id="error-email"></span>
         </div>
         <button type="submit">Enviar</button>
+        <p class="mensaje-exito" id="mensaje-exito"></p>
       </form>
     </section>
 

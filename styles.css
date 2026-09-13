@@ -1,5 +1,5 @@
 /* ============================================
-   VARIABLES — paleta de RetroLab
+   VARIABLES — paleta real de RetroLab
    ============================================ */
 :root {
   --color-navy: #162832;     /* texto principal, header, botones */
@@ -255,6 +255,24 @@ nav a {
   border: 1px solid var(--color-navy);
   border-radius: var(--radio-borde);
   font-family: var(--fuente-texto);
+}
+
+.campo input.invalido {
+  border-color: #b02a2a;
+}
+
+.error {
+  display: block;
+  min-height: 1.1rem;
+  color: #b02a2a;
+  font-size: 0.8rem;
+  margin-top: var(--espacio-sm);
+}
+
+.mensaje-exito {
+  color: #2f5233;
+  font-size: 0.9rem;
+  margin-top: var(--espacio-md);
 }
 
 #form-contacto button {
