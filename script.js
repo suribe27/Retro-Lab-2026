@@ -257,9 +257,13 @@ function filtrarPorCategoria(categoria) {
 
 botonesFiltro.forEach((boton) => {
   boton.addEventListener('click', () => {
-    // Quitar la clase activo de todos y ponerla solo en el que se hizo clic
-    botonesFiltro.forEach((b) => b.classList.remove('activo'));
+    // Quitar la clase activo y el aria-pressed de todos, ponerlo solo en el que se hizo clic
+    botonesFiltro.forEach((b) => {
+      b.classList.remove('activo');
+      b.setAttribute('aria-pressed', 'false');
+    });
     boton.classList.add('activo');
+    boton.setAttribute('aria-pressed', 'true');
 
     const categoriaSeleccionada = boton.dataset.categoria;
     const camisetasFiltradas = filtrarPorCategoria(categoriaSeleccionada);

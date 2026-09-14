@@ -15,7 +15,7 @@
       <img src="img/logo-retrolab.png" alt="Logo de RetroLab, sello circular con una camiseta a rayas y el texto Heritage Wear">
     </a>
     <div class="nav-wrapper">
-      <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+      <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu"></button>
         <span></span><span></span><span></span>
       </button>
       <nav id="nav-menu">
@@ -35,10 +35,12 @@
       <p class="catalogo-intro">Todas las camisetas disponibles ahora mismo. ¿Te gusta alguna? Pregúntanos por ella aquí.</p>
 
       <div class="filtros" id="filtros">
-        <button data-categoria="todos" class="activo">Todos</button>
-        <button data-categoria="clubes">Clubes</button>
-        <button data-categoria="selecciones">Selecciones</button>
+        <button data-categoria="todos" class="activo" aria-pressed="true">Todos</button>
+        <button data-categoria="clubes" aria-pressed="false">Clubes</button>
+        <button data-categoria="selecciones" aria-pressed="false">Selecciones</button>
       </div>
+
+      <h2 class="visually-hidden">Camisetas disponibles</h2>
 
       <div class="catalogo-grid" id="catalogo-grid">
       </div>
